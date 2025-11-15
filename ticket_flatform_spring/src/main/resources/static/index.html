@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>티켓팅 서비스 - 로그인</title>
+    <title>티켓팅 플랫폼</title>
 
     <style>
         body {
@@ -151,9 +151,9 @@
     signupForm.addEventListener('submit', async (event) => {
         event.preventDefault(); // 폼 기본 동작(새로고침) 방지
 
-        const username = document.getElementById('signup-username').value;
-        const password = document.getElementById('signup-password').value;
-        const confirmPassword = document.getElementById('signup-confirm-password').value;
+        const username = document.getElementById('signup-username').value; // Controller에 Id 전달
+        const password = document.getElementById('signup-password').value; // Controller에 Password 전달
+        const confirmPassword = document.getElementById('signup-confirm-password').value; // DB에서 가져오는 Password
 
         // (1) 프론트엔드에서 비밀번호 확인
         if (password !== confirmPassword) {
@@ -169,7 +169,7 @@
 
         // (3) fetch를 사용하여 백엔드 API 호출
         try {
-            const response = await fetch('/api/auth/signup', {
+            const response = await fetch('/api/auth/signup', { // SecurityConfig 보안 검문소로 Request 전달
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' // 우리는 JSON을 보낸다
