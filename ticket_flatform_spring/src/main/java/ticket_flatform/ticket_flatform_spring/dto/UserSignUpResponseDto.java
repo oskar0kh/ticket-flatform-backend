@@ -3,6 +3,8 @@ package ticket_flatform.ticket_flatform_spring.dto;
 import ticket_flatform.ticket_flatform_spring.domain.User;
 import lombok.Getter;
 
+// Response DTO : 회원가입 끝나고, DB에 저장된 Entity 중 필요한 정보들만 Response DTO에 저장 -> Client에게 반환
+
 @Getter // userId, username에 대하여, 'getUserId(), getUsername()' 메서드를 자동으로 생성
         // * [2단계] UserSignUpResponseDto의 Getter 사용 -> DTO 객체에 저장된 값들 꺼내서, JSON 형식으로 변환할때 사용
 public class UserSignUpResponseDto {

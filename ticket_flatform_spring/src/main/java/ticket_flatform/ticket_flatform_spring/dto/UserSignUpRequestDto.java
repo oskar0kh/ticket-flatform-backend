@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+// Request DTO : 회원가입 시 들어오는 데이터 -> Request DTO 객체에 저장 -> Service에게 전달
+
 @Getter
 @Setter
 @NoArgsConstructor // UserSignUpRequestDto의 깡통 객체 생성 -> dto 객체에 username, password값 저장하고, 상대편에게 전달
