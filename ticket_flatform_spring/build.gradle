@@ -39,4 +39,31 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+
+	// 테스트 끝날때마다, 각 테스트 파일의 이름(desc), 테스트 결과(result) 가져옴
+	// ex) UserTest 파일의 테스트 끝났을 때, 'desc = ticket_flatform_...UserTest'
+	afterSuite { desc, result ->
+		if (desc.className != null && desc.className.contains("UserTest")) { // UserTest 파일의 결과만 확인
+
+			// 테스트 성공 시 문구
+			if (result.resultType == TestResult.ResultType.SUCCESS) {
+				println "\n*****************************************************"
+				println "[UserTest] Test Completed."
+				println "*****************************************************\n"
+			}
+			// 테스트 실패 시 문구
+			else {
+				println "\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+				println "[UserTest] Test Failed. Please Check the Log."
+				println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
+			}
+		}
+	}
+
+	// 전체 테스트 완료 문구
+	doLast {
+		println("\n===========================================")
+		println("All Test Completed.")
+		println("===========================================\n")
+	}
 }

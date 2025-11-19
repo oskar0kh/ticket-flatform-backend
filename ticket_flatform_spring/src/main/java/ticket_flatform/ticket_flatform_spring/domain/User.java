@@ -11,11 +11,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // User 클래스의 객체 생성할 때,
                                                    // User 클래스 내부의 'create()' 메서드로만 생성할 수 있도록 보호
-@EqualsAndHashCode(of = "id") // 객체 같은지 비교할 때, "id" 값 만으로 비교
+@EqualsAndHashCode(of = "userId") // 객체 같은지 비교할 때, "id" 값 만으로 비교
 @Table(name = "users") // DB 테이블명을 'users'로 지정
 public class User {
 
-    // == DB 테이블 생성 == //
+    //////////////////////////////////////////////////////////////////
+    // DB 테이블 생성 //
 
     @Id // 이 필드 == private key (PK)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +34,8 @@ public class User {
     @Column(nullable = false)
     private UserRole role; // User 객체들의 role 지정
 
-    // == 비즈니스 로직 (Rich Domain) == //
+    //////////////////////////////////////////////////////////////////
+    // 비즈니스 로직 (Rich Domain) //
 
     // User Entity(객체) 생성 메서드 : new User()로 매번 생성하는 대신, 객체 생성을 전담하는 메서드를 만드는 것!
 
