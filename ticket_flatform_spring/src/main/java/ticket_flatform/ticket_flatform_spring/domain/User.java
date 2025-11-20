@@ -26,7 +26,7 @@ public class User {
     private String username; // 로그인 ID
                              // username VARCHAR(20) NOT NULL UNIQUE
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private String password; // 로그인 PW
                              // password VARCHAR(20) NOT NULL
 

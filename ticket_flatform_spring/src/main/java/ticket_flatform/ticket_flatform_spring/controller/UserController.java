@@ -22,7 +22,7 @@ public class UserController {
     // Container에서 userService 객체 가져오기 (DI)
     private final UserService userService;
 
-    @PostMapping("/signup") // 'POST /api/users/signup' 으로 들어오는 HTTP Request 받는 메서드
+    @PostMapping("/signup") // '/api/users/signup' API로 날라온 'POST' HTTP Request 받는 메서드
     public ResponseEntity<UserSignUpResponseDto> signUp( @Valid @RequestBody UserSignUpRequestDto requestDto
     ) {
         // Request DTO 객체 -> Service에게 전달 -> Service의 반환값 받기 (Response DTO 객체)

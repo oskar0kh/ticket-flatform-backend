@@ -18,6 +18,6 @@ public class UserSignUpRequestDto {
     private String username; // 'email' -> 'username'
 
     @NotBlank(message = "비밀번호는 필수 입력 항목입니다.")
-    @Size(min = 8, message = "비밀번호는 8자 이상 20자 이하여야 합니다.")
+    @Size(min = 8, message = "비밀번호는 8자 이상 이어야 합니다.")
     private String password;
 }
