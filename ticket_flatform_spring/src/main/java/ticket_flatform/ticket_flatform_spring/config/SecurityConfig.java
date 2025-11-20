@@ -25,11 +25,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http    // 보안 규칙들 (filter)
                 .csrf(csrf -> csrf.disable()) // 1. csrf 비활성화 (stateless -> csrf 비활성화 시킴)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authz -> authz // 주소 검사
                         .requestMatchers("/api/users/signup").permitAll() // 1) 회원가입 경로는 모두 접근 가능
                         .anyRequest().authenticated() // 2) 나머지 경로는 인증된 사용자만 접근 가능
                 );
+
         return http.build();
     }
 }
